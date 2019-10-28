@@ -1,0 +1,22 @@
+.button-root {
+    width: 120px;
+    height: 55px;
+    background-color: #2F568B;
+    border: none;
+    font-size: 22px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.button-root:hover {
+    background-color: #4070b2;
+}
+
+.button-root:active {
+    background-color: #4e8adb;
+}
+
+.button-root:disabled {
+    background-color: #3B414B;
+    color: #aeaeae;
+}
