@@ -5,25 +5,34 @@ import Header from "./components/Header/Header";
 import "./App.css";
 import TerminalAccess from "./components/TerminalAccess/TerminalAccess";
 import Checkbox from "./components/Checkbox/Checkbox";
+import config from "./config.json";
 
 class App extends React.Component {
   state = {
-    checkboxes: {
-      "Fake IMU": {
-        enabled: false
-      }
-    }
+    checkboxes: config
   };
 
   handleCheckboxClicked = name => {
     const checkboxes = { ...this.state.checkboxes };
-    checkboxes[name].enabled = !checkboxes[name].enabled;
-    console.log(
-      "checkbox " + name + " is enabled: " + checkboxes[name].enabled
-    );
+    checkboxes[name][0].enabled = !checkboxes[name][0].enabled;
     this.setState({
       checkboxes
     });
+  };
+
+  getCheckboxes = (checkboxes, handleCheckboxClicked) => {
+    let checkboxList = [];
+    Object.keys(checkboxes).forEach(checkbox_name => {
+      checkboxList.push(
+        <Checkbox
+          // name={checkboxes[checkbox_name][0].flag}
+          name={checkbox_name}
+          onClick={handleCheckboxClicked}
+          enabled={checkboxes[checkbox_name][0].enabled}
+        />
+      );
+    });
+    return checkboxList;
   };
 
   render() {
@@ -33,12 +42,11 @@ class App extends React.Component {
           <div className="grid-container">
             <Header className="header" title="Internal Debugging GUI"></Header>
             <div className="switches">
-              <div className="fake-imu">
-                <Checkbox
-                  name="Fake IMU"
-                  onClick={this.handleCheckboxClicked}
-                  enabled={this.state.checkboxes["Fake IMU"].enabled}
-                />
+              <div>
+                {this.getCheckboxes(
+                  this.state.checkboxes,
+                  this.handleCheckboxClicked
+                )}
               </div>
             </div>
             <div className="run-button">

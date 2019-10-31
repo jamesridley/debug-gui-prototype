@@ -4,8 +4,8 @@ import React from "react";
 
 function Checkbox(props) {
   const style = props.enabled
-    ? { backgroundColor: "red" }
-    : { backgroundColor: "blue" };
+    ? { backgroundColor: "#4e8adb" }
+    : { backgroundColor: "#2F568B" };
 
   return (
     <div
