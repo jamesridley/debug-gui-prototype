@@ -27,7 +27,9 @@ class App extends React.Component {
             <div className="switches">
               <div className="fake-imu">
               <Checkbox 
-                name="FAKE IMU" handleClick={() => this.handleCheckBox(this.state.fakeimu_enabled)} enabled={this.state.fakeimu_enabled}>
+                name="FAKE IMU" 
+                handleClick={() => this.handleCheckBox(this.state.fakeimu_enabled)} 
+                enabled={this.state.fakeimu_enabled}>
               </Checkbox>
               </div>
             </div>
