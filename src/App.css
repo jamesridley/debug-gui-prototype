@@ -41,3 +41,8 @@
   display: flex;
   justify-self: end;
 }
+
+.switches {
+  margin: 5%;
+  grid-row: 2/2;
+}
