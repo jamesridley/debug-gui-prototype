@@ -1,0 +1,16 @@
+{
+  "Fake IMU": [{ "flag": "--fake_imu", "enabled": false }],
+  "Fake IMU fail": [{ "flag": "--fake_imu_fail", "enabled": false }],
+  "Fake batteries": [{ "flag": "--fake_batteries", "enabled": false }],
+  "Fake batteries fail": [
+    { "flag": "--fake_batteries_fail", "enabled": false }
+  ],
+  "Fake keyence": [{ "flag": "--fake_keyence", "enabled": false }],
+  "Fake keyence fail": [{ "flag": "--fake_keyence_fail", "enabled": false }],
+  "Fake temperature": [{ "flag": "--fake_temperature", "enabled": false }],
+  "Fake temperature fail": [
+    { "flag": "--fake_temperature_fail", "enabled": false }
+  ],
+  "Fake embrakes": [{ "flag": "--fake_embrakes", "enabled": false }],
+  "Fake motors": [{ "flag": "--fake_motors", "enabled": false }]
+}
