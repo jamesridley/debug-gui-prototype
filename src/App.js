@@ -8,25 +8,24 @@ import Checkbox from "./components/Checkbox/Checkbox";
 
 class App extends React.Component {
   state = {
-    checkboxes: [
-      {
-        id: "fakeIMUs",
+    checkboxes: {
+      "Fake IMU": {
         enabled: false
       }
-    ]
+    }
   };
 
-  handleCheckBox = checkbox => {
-    const checkboxes = [...this.state.checkboxes];
-    const index = checkboxes.indexOf(checkbox);
-    checkboxes[index].enabled = !checkboxes[index].enabled;
+  handleCheckboxClicked = name => {
+    const checkboxes = { ...this.state.checkboxes };
+    checkboxes[name].enabled = !checkboxes[name].enabled;
     console.log(
-      checkboxes[index].id + " is enabled: " + checkboxes[index].enabled
+      "checkbox " + name + " is enabled: " + checkboxes[name].enabled
     );
     this.setState({
       checkboxes
     });
   };
+
   render() {
     return (
       <div className="App">
@@ -37,9 +36,9 @@ class App extends React.Component {
               <div className="fake-imu">
                 <Checkbox
                   name="Fake IMU"
-                  handleClick={this.handleCheckBox}
-                  enabled={this.state.fakeimu_enabled}
-                ></Checkbox>
+                  onClick={this.handleCheckboxClicked}
+                  enabled={this.state.checkboxes["Fake IMU"].enabled}
+                />
               </div>
             </div>
             <div className="run-button">

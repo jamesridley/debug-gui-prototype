@@ -1,3 +1,5 @@
+import "./Checkbox.css";
+
 import React from "react";
 
 function Checkbox(props) {
@@ -6,8 +8,11 @@ function Checkbox(props) {
     : { backgroundColor: "blue" };
 
   return (
-    <div style={{ display: "flex", alignItems: "center", margin: "1%" }}>
-      <div className="box" style={style}></div>
+    <div
+      style={{ display: "flex", alignItems: "center", margin: "1%" }}
+      onClick={() => props.onClick(props.name)}
+    >
+      <div className="box" style={style} />
       <h3 style={{ textAlign: "left", margin: 0 }}>{props.name}</h3>
     </div>
   );
