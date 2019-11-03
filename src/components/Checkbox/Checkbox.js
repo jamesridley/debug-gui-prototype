@@ -1,21 +1,25 @@
-import "./Checkbox.css"
+import "./Checkbox.css";
 
-import React from 'react';
+import React from "react";
 
 function Checkbox(props) {
-    const style = props.enabled ? {backgroundColor:"red"} : {backgroundColor:"blue"};
+  const style = props.enabled
+    ? { backgroundColor: "#4e8adb" }
+    : { backgroundColor: "#2F568B" };
 
-    return(
-        <div className="checkbox-root">
-            <div className="box" style={style} onClick={props.handleClick}></div>
-            <h3 style={{textAlign:"left",margin: 0}}>{props.name}</h3>
-            
-        </div>
-    );
+  return (
+    <div
+      style={{ display: "flex", alignItems: "center", margin: "1%" }}
+      onClick={() => props.onClick(props.name)}
+    >
+      <div className="box" style={style} />
+      <h3 style={{ textAlign: "left", margin: 0 }}>{props.name}</h3>
+    </div>
+  );
 }
 
 Checkbox.defaultProps = {
-    enabled: false,
-}
+  enabled: false
+};
 
 export default Checkbox;
