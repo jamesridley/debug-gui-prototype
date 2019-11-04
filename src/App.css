@@ -52,11 +52,9 @@
 }
 
 .switches {
+  text-align: left;
   margin: 5%;
   grid-row: 2/2;
-}
-
-.checkbox {
   color: white;
 }
 

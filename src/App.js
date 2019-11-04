@@ -13,44 +13,70 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      checkboxes: config
+      checkboxes: config,
+      flags: [],
+      debug_level: "0"
     };
-    this.getEnabledFlags = this.getEnabledFlags.bind(this);
     this.getCheckboxes = this.getCheckboxes.bind(this);
+    this.getTerminalInput = this.getTerminalInput.bind(this);
   }
 
-  getEnabledFlags = () => {
-    const { checkboxes } = this.state;
-    let enabled_flags = [];
-    Object.keys(checkboxes).forEach(checkbox_name => {
-      if (checkboxes[checkbox_name][0].enabled) {
-        enabled_flags.push(checkboxes[checkbox_name][0].flag);
-      }
-    });
-    return enabled_flags;
-  };
-
-  handleCheckboxClicked = name => {
-    const checkboxes = { ...this.state.checkboxes };
-    checkboxes[name][0].enabled = !checkboxes[name][0].enabled;
-    this.setState({
-      checkboxes
-    });
+  getTerminalInput = () => {
+    const { flags, debug_level } = this.state;
+    return {
+      flags,
+      debug_level
+    };
   };
 
   getCheckboxes = () => {
     const { checkboxes } = this.state;
     let checkbox_list = [];
-    Object.keys(checkboxes).forEach(checkbox_name => {
+    Object.keys(checkboxes).forEach((checkbox_name, i) => {
       checkbox_list.push(
         <Checkbox
           name={checkbox_name}
+          key={i}
           onClick={this.handleCheckboxClicked}
           enabled={checkboxes[checkbox_name][0].enabled}
         />
       );
     });
     return checkbox_list;
+  };
+
+  handleCheckboxClicked = name => {
+    // Update checkboxes
+    const checkboxes = { ...this.state.checkboxes };
+    checkboxes[name][0].enabled = !checkboxes[name][0].enabled;
+
+    // Update flags
+    let flags = [];
+    Object.keys(checkboxes).forEach(checkbox_name => {
+      if (checkboxes[checkbox_name][0].enabled) {
+        flags.push(checkboxes[checkbox_name][0].flag);
+      }
+    });
+    this.setState(
+      {
+        checkboxes,
+        flags
+      },
+      () => {
+        console.log(this.getTerminalInput());
+      }
+    );
+  };
+
+  handleDebugDropdownChange = debug_level => {
+    this.setState(
+      {
+        debug_level
+      },
+      () => {
+        console.log(this.getTerminalInput());
+      }
+    );
   };
 
   render() {
@@ -61,9 +87,7 @@ class App extends React.Component {
             <Header className="header" title="INTERNAL DEBUGGING GUI"></Header>
             <div className="switches">
               <div>{this.getCheckboxes()}</div>
-            </div>
-            <div className="debug-dropdown">
-              <DebugDropdown></DebugDropdown>
+              <DebugDropdown onChange={this.handleDebugDropdownChange} />
             </div>
             <div className="run-button">
               <Button name="RUN"></Button>
