@@ -1,5 +1,4 @@
 import React from "react";
-import "react-dropdown/style.css";
 
 const DebugDropdown = props => {
   return (
