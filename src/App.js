@@ -23,10 +23,11 @@ class App extends React.Component {
 
   getTerminalInput = () => {
     const { flags, debug_level } = this.state;
-    return {
+
+    return JSON.parse({
       flags,
       debug_level
-    };
+    });
   };
 
   getCheckboxes = () => {
@@ -57,15 +58,10 @@ class App extends React.Component {
         flags.push(checkboxes[checkbox_name][0].flag);
       }
     });
-    this.setState(
-      {
-        checkboxes,
-        flags
-      },
-      () => {
-        console.log(this.getTerminalInput());
-      }
-    );
+    this.setState({
+      checkboxes,
+      flags
+    });
   };
 
   handleDebugDropdownChange = debug_level => {

@@ -1,12 +1,12 @@
 .checkbox-root {
-    height: 20px;
-    width: auto;
-    display:flex;
-    align-items: center;
-    margin:1%;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin: 5%;
 }
 
 .box {
-    width: 20px;
-    height: 20px;
+  width: 30px;
+  height: 30px;
 }
