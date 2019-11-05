@@ -1,22 +1,24 @@
 .button-root {
-    width: 120px;
-    height: 55px;
-    background-color: #2F568B;
-    border: none;
-    font-size: 22px;
-    font-weight: 300;
-    color: #ffffff;
+  width: 120px;
+  height: 55px;
+  background-color: #2f568b;
+  border: none;
+  font-size: 22px;
+  font-weight: 300;
+
+  color: #ffffff;
+  margin: 10%;
 }
 
 .button-root:hover {
-    background-color: #4070b2;
+  background-color: #4070b2;
 }
 
 .button-root:active {
-    background-color: #4e8adb;
+  background-color: #4e8adb;
 }
 
 .button-root:disabled {
-    background-color: #3B414B;
-    color: #aeaeae;
+  background-color: #3b414b;
+  color: #aeaeae;
 }

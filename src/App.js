@@ -23,10 +23,11 @@ class App extends React.Component {
 
   getTerminalInput = () => {
     const { flags, debug_level } = this.state;
-    return {
+
+    return JSON.stringify({
       flags,
       debug_level
-    };
+    });
   };
 
   getCheckboxes = () => {
@@ -57,26 +58,16 @@ class App extends React.Component {
         flags.push(checkboxes[checkbox_name][0].flag);
       }
     });
-    this.setState(
-      {
-        checkboxes,
-        flags
-      },
-      () => {
-        console.log(this.getTerminalInput());
-      }
-    );
+    this.setState({
+      checkboxes,
+      flags
+    });
   };
 
   handleDebugDropdownChange = debug_level => {
-    this.setState(
-      {
-        debug_level
-      },
-      () => {
-        console.log(this.getTerminalInput());
-      }
-    );
+    this.setState({
+      debug_level
+    });
   };
 
   render() {
@@ -86,14 +77,14 @@ class App extends React.Component {
           <div className="grid-container">
             <Header className="header" title="INTERNAL DEBUGGING GUI"></Header>
             <div className="switches">
-              <div>{this.getCheckboxes()}</div>
+              <div className="checkbox-container">{this.getCheckboxes()}</div>
               <DebugDropdown onChange={this.handleDebugDropdownChange} />
             </div>
             <div className="run-button">
               <Button name="RUN"></Button>
             </div>
             <div className="terminal">
-              <TerminalAccess></TerminalAccess>
+              <pre>Hello, world!</pre>
             </div>
           </div>
         </div>

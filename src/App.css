@@ -3,58 +3,90 @@
 }
 
 .App {
-  text-align: center;
   font-family: "Lato";
 }
 
 .gui-wrapper {
-  /* display: flex; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
   background-color: var(--main-bg-color);
 }
 
 .grid-container {
   flex-grow: 1;
-  margin: 1%;
   display: grid;
-  grid-template-columns: 430px 380px auto;
-  grid-template-rows: 90px 190px 320px auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
   grid-gap: 25px 5px;
-  margin: auto;
+  margin: 2%;
 }
 
 .header {
+  margin-left: 25px;
+  text-align: left;
+  font-size: 30px;
   font-family: "Lato";
   grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row: 1 / 4;
+  grid-column-end: 2;
+  grid-row: 1;
   justify-content: flex-start;
   color: white;
   font-family: "Lato";
 }
 
 .terminal {
-  margin-top: 2%;
-  margin-right: 5%;
-  grid-column: 3/4;
-  grid-row: 1/3;
+  width: 100%;
+  margin-right: 1%;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+pre {
+  background-color: black;
+  color: rgb(0, 255, 0);
+  display: block;
+  height: 100%;
+  border: 1px solid white;
 }
 
 .run-button {
   flex-direction: column-reverse;
-  grid-column: 2/3;
-  grid-row: 3/3;
-  display: flex;
-  justify-self: end;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: block;
+  justify-self: right;
+  margin-top: 50%;
+  margin-right: 5%;
 }
 
 .debug-dropdown {
-  background-color: var(--main-bg-color);
+  font-style: "Lato";
+  color: var(--main-bg-color);
+  background-color: #2f568b;
+  color: white;
+  border: none;
+  font-size: 22px;
+}
+
+.checkbox-container {
+  display: flex;
+  height: 250px;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .switches {
   text-align: left;
   margin: 5%;
-  grid-row: 2/2;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
   color: white;
 }
 
