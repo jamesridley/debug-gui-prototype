@@ -24,7 +24,7 @@ class App extends React.Component {
   getTerminalInput = () => {
     const { flags, debug_level } = this.state;
 
-    return JSON.parse({
+    return JSON.stringify({
       flags,
       debug_level
     });
@@ -65,14 +65,9 @@ class App extends React.Component {
   };
 
   handleDebugDropdownChange = debug_level => {
-    this.setState(
-      {
-        debug_level
-      },
-      () => {
-        console.log(this.getTerminalInput());
-      }
-    );
+    this.setState({
+      debug_level
+    });
   };
 
   render() {

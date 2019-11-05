@@ -16,7 +16,7 @@
 .grid-container {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 6fr 1fr;
   grid-gap: 25px 5px;
   margin: 2%;
