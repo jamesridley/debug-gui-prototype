@@ -82,14 +82,14 @@ class App extends React.Component {
           <div className="grid-container">
             <Header className="header" title="INTERNAL DEBUGGING GUI"></Header>
             <div className="switches">
-              <div>{this.getCheckboxes()}</div>
+              <div className="checkbox-container">{this.getCheckboxes()}</div>
               <DebugDropdown onChange={this.handleDebugDropdownChange} />
             </div>
             <div className="run-button">
               <Button name="RUN"></Button>
             </div>
             <div className="terminal">
-              <TerminalAccess></TerminalAccess>
+              <pre>Hello, world!</pre>
             </div>
           </div>
         </div>
