@@ -6,7 +6,7 @@
  *
  * Description:   Handles websocket requests and responses using socket.io
  *
- * Last Modified: Wednesday, 6th November 2019 11:48:42 am
+ * Last Modified: Wednesday, 6th November 2019 2:50:06 pm
  * Modified By:   Paul Martin (paul@blibspace.com)
  */
 
@@ -36,11 +36,12 @@ const main = port => {
           socket.emit('console_error', err.toString());
           return;
         }
-        console.log(`** stdout: ${data}`);
+        //console.log(`** stdout: ${data}`);
         socket.emit('console_output', data.toString());
       };
 
       console.log('** starting bbb');
+      console.log(payload.flags);
       bbb.connect(payload.flags, payload.debug_level, pipe);
     }); // bbb_start
 

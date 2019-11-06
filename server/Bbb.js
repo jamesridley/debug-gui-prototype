@@ -8,7 +8,7 @@
  *                -> In future it should handle the connection to the Beagle Bone Black (BBB)
  *                   instead of executing the binary locally
  *
- * Last Modified: Wednesday, 6th November 2019 11:17:50 am
+ * Last Modified: Wednesday, 6th November 2019 3:40:25 pm
  * Modified By:   Paul Martin (paul@blibspace.com)
  */
 
@@ -19,9 +19,10 @@ class Bbb {
   _connected = false;
 
   connect(flags, debug_level, pipeCallback) {
-    const params = flags.concat([debug_level]);
+    const params = flags.concat([`--debug=${debug_level}`]);
+    console.log(params);
 
-    this.child = spawn('./hyped', params);
+    this.child = spawn('./hyped/hyped', params);
     this.child.stdout.setEncoding('utf8');
     this._connected = true;
 
@@ -39,8 +40,8 @@ class Bbb {
 
     // error handling: when process runs into error
     this.child.stderr.on('data', data => {
-      console.log(`stderr: ${data}`);
-      pipeCallback(null, `stderr: ${data}`);
+      //console.log(`stderr: ${data}`);
+      pipeCallback(data);
     });
   }
 

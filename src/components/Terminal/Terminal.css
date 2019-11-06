@@ -1,0 +1,18 @@
+.terminal {
+  width: 100%;
+  margin-right: 1%;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  height: 500px;
+}
+
+pre {
+  background-color: black;
+  color: rgb(0, 255, 0);
+  display: block;
+  height: 100%;
+  border: 1px solid white;
+  overflow: scroll;
+}
