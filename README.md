@@ -1,16 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An early prototype of the internal debugging gui for [HYPED-2020](https://github.com/Hyp-ed/hyped-2020).
+<br /><br />
+
+#### After cloning, run `sh ./setup.sh` to install dependencies, load the git submodules and make the hyped binary
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm backend`
 
-Runs the app in the development mode.<br />
+Runs only the backend.<br />
+Hosts a websocket server at [http://localhost:8080](http://localhost:8080)
+When you make any changes, you will have to reload manually by terminating and running the command again.<br />
+
+### `npm frontend`
+
+Runs only the react frontend.<br />
+The frontend will reload if you make edits.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `npm start`
+
+Runs both, the backend and frontend in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The frontend will reload if you make edits.<br />
+You will also see any lint errors in the console.<br />
+The backend you will have to reload manually by terminating and running the command again.<br />
 
 ### `yarn test`
 
